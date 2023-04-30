@@ -10,7 +10,7 @@ const buildHTML = (XHR) => {
       </div>
     </div>`;
   return html;
-}
+};
 
 function post (){
   const submit = document.getElementById("submit");
@@ -26,13 +26,13 @@ function post (){
       if (XHR.status != 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
-      }
+      };
       const list = document.getElementById("list");
       const formText = document.getElementById("content");
-        list.insertAdjacentHTML("afterend", html)
-        formText.value = "";
+      list.insertAdjacentHTML("afterend", buildHTML(XHR));
+      formText.value = "";
     };
   });
 };
 
-window.addEventListener('load', post)
+window.addEventListener('load', post);
